@@ -83,9 +83,9 @@
   =/  zoom-margin=number:block   (fall confirms.pup 15)
   =/  zoom-step=number:block    100.000
   ?:  (lth latest-number (add number.pup zoom-margin))
-     ~&  >>  "[{<`@ux`(swp 3 (end [3 4] (swp 3 -.contracts.pup)))>}] waiting - latest: {<latest-number>} number: {<number.pup>}  up-to: {<up-to>}"
+     ::  ~&  >>  "[{<`@ux`(swp 3 (end [3 4] (swp 3 -.contracts.pup)))>}] waiting - latest: {<latest-number>} number: {<number.pup>}  up-to: {<up-to>}"
     (pure:m pup)
-   ~&  >>  "[{<`@ux`(swp 3 (end [3 4] (swp 3 -.contracts.pup)))>}] ready - latest: {<latest-number>} number: {<number.pup>}  up-to: {<up-to>}"
+   ::  ~&  >>  "[{<`@ux`(swp 3 (end [3 4] (swp 3 -.contracts.pup)))>}] ready - latest: {<latest-number>} number: {<number.pup>}  up-to: {<up-to>}"
   =/  up-to-number=number:block
     ;:  min
       (add 10.000.000 number.pup)
