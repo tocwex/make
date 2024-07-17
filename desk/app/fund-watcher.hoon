@@ -133,16 +133,8 @@
     [(weld wait-cards restart-cards) this]
   ::
       %clear
-    ?:  (~(has by dogs.state) path.poke)
-      =.  dogs.state  (~(del by dogs.state) path.poke)
-      [~ this]
-    =-  =.  dogs.state  -  [~ this]
-    %-  ~(rep by dogs.state)
-    |=  [[=path dog=watchdog] dogs=_dogs.state]
-    ^+  dogs.state
-    ?.  =(-.path -.path.poke)  dogs
-    ~&  >>  "deleting dog for {<path>}"
-    (~(del by dogs) path)
+    =.  dogs.state  (~(del by dogs.state) path.poke)
+    [~ this]
   ==
 ::
 ::  +on-watch: subscribe & get initial subscription data
