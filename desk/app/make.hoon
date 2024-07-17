@@ -1,4 +1,4 @@
-/-  *vapor, chat, scan=scanner
+/-  *vapor, chat, scan=fund-watcher
 /+  w=work, dbug, default-agent, v=vapor, c=vapor-chain
 ::
 |%
@@ -522,7 +522,7 @@
 ::  /make/navy: a new navy has been created
 ::  /eyre/connect: an eyre binding has been established
 ::  /make/wrap: a new wrap is being created. checks for a successful
-::     result from scanner, updates the vapor namespace, and spawns 
+::     result from fund-watcher, updates the vapor namespace, and spawns
 ++  arvo
   |=  [=pith sig=sign-arvo]
   ^+  cor
@@ -613,11 +613,11 @@
 ::  supported:
 ::
 ::  /make/notify            - after a dm
-::  /make/hund              - scanner acks
-::  /logs/[type]/make/hund  - scanner logs
-::    parses a diff:scanner and updates the vapor namespace
-::    with the results. the path contains the block number 
-::    the watchdog began with. 
+::  /make/hund              - fund-watcher acks
+::  /logs/[type]/make/hund  - fund-watcher logs
+::    parses a diff:fund-watcher and updates the vapor namespace
+::    with the results. the path contains the block number
+::    the watchdog began with.
 ++  dude
   |=  [=pith sig=sign:agent:gall]
   ^+  cor
@@ -640,7 +640,7 @@
       [%logs type=@tas %make %hund [%ux oath=@ux] [%ud bloq=@ud] ~]
     =,  pith
     =/  s=slip  [oath ~]
-    ~_  'VAPOR: make error, scanner failure'
+    ~_  'VAPOR: make error, fund-watcher failure'
     ?+    -.sig  ~|(vapor-make-panic-bad-sig/[pith sig] !!)
     ::  %kick
         %kick
@@ -655,11 +655,11 @@
       %-  (bark state |.("watch-ack: {<oath>}"))
       %.  cor
       ?~  p.sig  same
-      (slog 'VAPOR: scanner failure' u.p.sig)
+      (slog 'VAPOR: fund-watcher failure' u.p.sig)
     ::  %fact
         %fact
       %-  (bark state |.("{<p.cage.sig>}: {<oath>}"))
-      ?>  ?=(%scanner-diff p.cage.sig)
+      ?>  ?=(%fund-watcher-diff p.cage.sig)
       =+  !<(dif=diff:scan q.cage.sig)
       ?+    -.dif  cor
       ::  %history
@@ -719,7 +719,7 @@
         (abed:dat oath.kill id.kill boq.kill to.kill)
         ==
     ==
-  :: /logs/[type]/make/hund[oath]/[deed]/[bloq] 
+  :: /logs/[type]/make/hund[oath]/[deed]/[bloq]
       [%logs type=@tas %make %hund [%ux oath=@ux] [%ux deed=@ux] [%ud bloq=@ud] ~]
     ::  TODO support watching specific items again
     =,  pith
@@ -743,9 +743,9 @@
   ++  abed
     |=  [=^oath =^deed =_bloq n=(unit @ux)]
     ^+  boc
-    =?  novo  ?=(^ n)  n 
-    =?  boat  ?=(^ novo)  
-      =-  ?-  -.-  
+    =?  novo  ?=(^ n)  n
+    =?  boat  ?=(^ novo)
+      =-  ?-  -.-
           %&  p.-
           %|  boat
         ==
@@ -759,7 +759,7 @@
       oath  oath
       deed  deed
       bloq  bloq
-      pak   ?^  mack=(~(get bi vapors) oath deed)  u.mack 
+      pak   ?^  mack=(~(get bi vapors) oath deed)  u.mack
             ?^  muck=(~(get bi vapors) oath ~)  u.muck
             pak
     ==
@@ -807,7 +807,7 @@
   ::    +view
   ::  locate namespace within vapors
   ::
-  ++  view 
+  ++  view
     ^-  (axal tech)
     %+    fall
       (~(get by mars.pak) [oath deed])
@@ -868,7 +868,7 @@
       =/  diff=$>(%pack diff:hunt:c)  diff
       =/  slab=(unit tech)  (pick %slab)
       =/  cast=vase
-        ?.  ?=(^ slab) 
+        ?.  ?=(^ slab)
           %.  (road |.(data.diff))
           (bark state |.("no slab for diff (path: {<in>})"))
         ?>  ?=(%slab -.u.slab)
@@ -888,7 +888,7 @@
             %-  head
             ~(tap in (~(key bi owners) u.novo))
           ?~  puds  `p
-          =/  =ship  (head ~(tap in u.puds)) 
+          =/  =ship  (head ~(tap in u.puds))
           `(welp ~[i.p] /(scot %p ship))
             [%packagebought @ @ *]
           =+  !<([eoa=@ux ship=@p id=@ud] data.diff)
@@ -911,12 +911,12 @@
             ~(dip of rail)
           %=  boc
             :: owners  owners
-              owners  
-            =/  alias=(unit $>(%pipe tech)) 
+              owners
+            =/  alias=(unit $>(%pipe tech))
               =;  res
                 ?-    -.res
                   %&  p.res
-                  %|  ~ 
+                  %|  ~
                 ==
               %-  mule  |.
               ;;  (unit $>(%pipe tech))
@@ -937,10 +937,10 @@
           :: =/  puds=(unit pods)
           ::   (~(get bi owners) registry:bonds:c `nova)
           :: =/  =pods
-          ::   ?^  p=(both puds boat) 
-          ::     (~(put in -.u.p) +.u.p)  
+          ::   ?^  p=(both puds boat)
+          ::     (~(put in -.u.p) +.u.p)
           ::   *pods
-          :: =?  owners.boc  ?=(^ buoy)  
+          :: =?  owners.boc  ?=(^ buoy)
           ::   (~(put bi owners) nova buoy pods)
           boc
         ==
@@ -971,7 +971,7 @@
     ^+  boc
     |^
     %-  (bark state |.("namespace for {<[oath deed]>}: {<view>}"))
-    |-  ^+  boc 
+    |-  ^+  boc
     ?~  gear  boc
     =/  =tech  i.gear
     ?+    -.tech  boc
@@ -980,7 +980,7 @@
       =+  dusk=;;((set desk) +.tech)
       =;    wol
         =.  cor  wol
-        $(gear t.gear, boc boc, cor cor) 
+        $(gear t.gear, boc boc, cor cor)
       %-  emil
       =,  clay
       %+  welp
@@ -1041,7 +1041,7 @@
         %land
       =;  run
         $(gear t.gear, cor run, boc boc)
-      %-  emil  
+      %-  emil
       %+  turn  ~(tap in pods)
       |=  =ship
       =/  m1
@@ -1055,7 +1055,7 @@
       =/  =diff:dm:chat
         [[our.bol now.bol] %add memo]
       :*  %pass  /make/notify  %agent  [our.bol %chat]  %poke
-          %dm-action  !>([ship diff])  
+          %dm-action  !>([ship diff])
       ==
     ::  %slab
         %slab
@@ -1075,7 +1075,7 @@
       =/  =diff:dm:chat
         [[our.bol now.bol] %add memo]
       :*  %pass  /make/notify  %agent  [our.bol %chat]  %poke
-          %dm-action  !>([ship diff])  
+          %dm-action  !>([ship diff])
       ==
     ::  %pipe
         %pipe
@@ -1086,7 +1086,7 @@
       =/  pats  (pat vent /packagebought/aliases)
       =/  puds=^pods
         %-  silt
-        %+  murn  pats 
+        %+  murn  pats
         |*  *
         ^-  (unit @p)
         ?~  +<  ~
@@ -1095,13 +1095,13 @@
         ~&  >>  s+u.s
         ?.  =(%duke clan)  ~
         [~ u.s]
-      ~&  >>  pace+pace  
-      ~&  >>  pats+pats 
-      =/  alias=(unit $>(%pipe ^tech)) 
+      ~&  >>  pace+pace
+      ~&  >>  pats+pats
+      =/  alias=(unit $>(%pipe ^tech))
         ;;  (unit $>(%pipe ^tech))
-        ?~  pace  
+        ?~  pace
           ?~  ps=~(tap in puds)  ~
-          `[%pipe [%noun !>(`@ux`(head ps))]]  
+          `[%pipe [%noun !>(`@ux`(head ps))]]
         (~(get of vent) i.pace)
       ~&  >>>  alias+alias
       ~&  >>>  puds+puds
@@ -1109,7 +1109,7 @@
         =.  dek.cor  dek.run
         =?  owners  ?=(^ alias)
         =+  !<(@ux q:`cage`p.u.alias)
-        (~(put bi owners) - deed (fall (~(get bi owners) - deed) puds))  
+        (~(put bi owners) - deed (fall (~(get bi owners) - deed) puds))
         $(cor run, gear t.gear, boc boc(owners owners))
       =-  (give %fact - `cage`p.tech)
       %-  zing
@@ -1130,12 +1130,12 @@
           [label=@ %aliases rest=*]
             %-  some
             ^-  (list path)
-            %+  turn  pace 
+            %+  turn  pace
             |=  p=path
             ?~  s=((soft ship) (fall (slaw %p -.rest) **))  (lane:v p ~)
             (lane:v /[label]/(scot %p u.s) ~)
         ::  %bloq
-        ::    only 
+        ::    only
             [label=@ %bloq *]
           =/  =path  +<
           =/  last=_bloq
@@ -1173,7 +1173,7 @@
         out  ^$(pax (weld pax /[p.i.dir]), fat q.i.dir)
       ==
     ++  puck
-      |=  (unit tech) 
+      |=  (unit tech)
       +<
       :: ?^  fil  !<(tech u.fil)
       :: ~&  >>  "no file at {<dir>}"  ~
@@ -1198,13 +1198,13 @@
   +*  hu  .
       pat  (lane:v %hund `[bon tem])
       wir  (welp pat /(scot %ud boq))
-      doe  [our.bol %scanner]
+      doe  [our.bol %fund-watcher]
         raw
       ^-  (list card)
       =-  (abed:pokes:hunt:c -)
-      [rpc boq bon bol %scanner]
+      [rpc boq bon bol %fund-watcher]
   ::    +meat
-  ::  
+  ::
   ::  send out the hounds
   ::
   ++  meat  raw
@@ -1232,7 +1232,7 @@
     %+  turn  trail
     |=  kind=@tas
     :*  %pass  wir  %agent  doe  %poke
-        scanner-poke+!>(clear+[kind pat])
+        fund-watcher-poke+!>(clear+[kind pat])
     ==
   --
 ::  +webs

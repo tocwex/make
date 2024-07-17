@@ -1,4 +1,4 @@
-/-  spider, v=vapor, scanner
+/-  spider, v=vapor, fund-watcher
 /+  *strandio, e=ethio, eth=ethereum, *naive, *vapor
 =,  strand=strand:spider
 |_  url=@t
@@ -44,7 +44,7 @@
       [(hex-to-num:eth i.r) (turn t.r hex-to-num:eth)]
   ==
 ++  scry
-  |%  
+  |%
     ++  block
       |=  =path
       .^(@udblocknumber %gx [%block path])
@@ -95,7 +95,7 @@
       oaths=(set oath:v)
       to=(unit @ux)
       =bowl:gall
-      watcher=?(%scanner %eth-watcher)
+      watcher=?(%fund-watcher %eth-watcher)
       id=(unit @ux)
       pot=(list @ux)
     ==
@@ -129,25 +129,25 @@
         bowl  bowl
         watcher  watcher
       ==
-    ++  base  
+    ++  base
       ^-  card
       =/  funs=(list @ux)  ~[-:sale:toga -:novo:toga]:log-names
-      =+  deeds=`(list @ux)`~[registry onboarding]:bonds 
-      =/  =config:scanner
+      =+  deeds=`(list @ux)`~[registry onboarding]:bonds
+      =/  =config:fund-watcher
         [rpc %& ~s30 ~m15 boq ~ deeds `5 [funs 0x0 0x0 0x0 ~]]
       =/  =wire  (lane %hund `[-:deeds ~])
       =/  =path
         (welp wire /(scot %ud boq))
       =-  [%pass path %agent [our.bowl watcher] %poke -]
-      scanner-poke+!>(`poke:scanner`watch+[base+wire config])
-  :: 
+      fund-watcher-poke+!>(`poke:fund-watcher`watch+[base+wire config])
+  ::
     ++  loan
         ^-  (list card)
         :-  base
         =-  (turn ~(tap in oaths) -)
         |=  =oath:v
-        =/  top=topics:scanner  [pot 0x0 0x0 0x0 ~] 
-        =/  =config:scanner
+        =/  top=topics:fund-watcher  [pot 0x0 0x0 0x0 ~]
+        =/  =config:fund-watcher
           [rpc %& ~s30 ~m15 boq ~ [oath]~ `5 top]
         =/  =wire  (lane %hund `[oath ~])
         =/  =path
@@ -155,7 +155,7 @@
         ~&  path+path
         ~&  wire+wire
         =-  [%pass path %agent [our.bowl watcher] %poke -]
-        scanner-poke+!>(`poke:scanner`watch+[trans+wire config])
+        fund-watcher-poke+!>(`poke:fund-watcher`watch+[trans+wire config])
     --
   ++  deco
     |%
@@ -178,13 +178,13 @@
       |=  data=@ux
       ^-  [id=@ux amt=@ux]
       =/  id  (cut 3 [0 32] data)
-      =/  amt  (cut 3 [32 32] data) 
+      =/  amt  (cut 3 [32 32] data)
       [id amt]
     --
   ++  log-names
     |%
     ++   match  |*(* =(+<- +<+<))
-    ++   dead 
+    ++   dead
       |=  @ux
       ^-  (unit cord)
       ?:  (match +< novo:toga)
@@ -214,7 +214,7 @@
       ++  solo
         %-  topi:form:ubi
         "Transfer(address,address,uint256)"
-      -- 
+      --
     ::  e1155
     ++  coin
       |%
